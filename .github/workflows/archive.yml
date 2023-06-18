@@ -21,7 +21,7 @@ jobs:
 
             - run: npx playwright install --with-deps
 
-            - run: node achivecopy.js
+            - run: node archivecopy.js
 
             - uses: mikeal/publish-to-github-action@master
               env:
