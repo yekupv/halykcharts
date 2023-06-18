@@ -1,0 +1,25 @@
+name: Run Workflow Twice Daily
+
+on:
+  schedule:
+    - cron: '0 2,12 * * *' # Run at 2 am and 12 pm UTC+6
+    workflow_dispatch: 
+
+jobs:
+  archive:
+    runs-on: ubuntu-latest
+
+    steps:
+        - uses: actions/checkout@v2'
+
+        - uses: actions/setup-node@v3
+          with:
+            node-version: 18
+        - run: npm ci
+
+        - run: node acthivecopy.js
+      # Add your desired workflow steps here
+
+      - name: Run the workflow
+        run: |
+          echo "Workflow executed at $(date)"
