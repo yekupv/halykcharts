@@ -17,9 +17,12 @@ jobs:
             node-version: 18
         - run: npm ci
 
-        - run: node acthivecopy.js
-      # Add your desired workflow steps here
+        - run: npx playwright install --with-deps
 
-      - name: Run the workflow
-        run: |
-          echo "Workflow executed at $(date)"
+        - run: node achivecopy.js
+
+        - uses: mikeal/publish-to-github-action@master
+          env: 
+            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+            BRANCH_NAME: 'main'
+      
